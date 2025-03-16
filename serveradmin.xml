@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <adminTools>
-  <users>
-  </users>
+  <users />
+  <whitelist />
+  <blacklist />
   <commands>
     <permission cmd="dm" permission_level="0" />
     <permission cmd="kick" permission_level="1" />

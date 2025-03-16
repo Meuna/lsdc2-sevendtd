@@ -4,19 +4,22 @@ export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
 ./update-server.sh
 
-# Init the serveradmin.xml file if it does not exists
-ADMIN_FILE=$SAVES_FOLDER/serveradmin.xml
-if [ ! -f $ADMIN_FILE ]; then
-    cp serveradmin.xml $ADMIN_FILE
+# Init the serveradmin.xml file if $ADMIN_STEAMID is provided
+if [ -n "$ADMIN_STEAMID" ]; then
+    # Create the serveradmin.xml is it does not exists
+    ADMIN_FILE=$SAVES_FOLDER/serveradmin.xml
+    if [ ! -f $ADMIN_FILE ]; then
+        cp serveradmin.xml $ADMIN_FILE
+    fi
+    # And give the admin to whoever configured the server
+    xmlstarlet ed --inplace \
+        -s "/adminTools/users" -t elem -n "user" -v "" \
+        -i "/adminTools/users/user[not(@platform)]" -t attr -n "platform" -v "Steam" \
+        -i "/adminTools/users/user[not(@userid)]" -t attr -n "userid" -v "$ADMIN_STEAMID" \
+        -i "/adminTools/users/user[not(@name)]" -t attr -n "name" -v "LSDC2 Master" \
+        -i "/adminTools/users/user[not(@permission_level)]" -t attr -n "permission_level" -v "0" \
+        $ADMIN_FILE
 fi
-# And give the admin to whoever configured the server
-xmlstarlet ed --inplace \
-    -s "/adminTools/users" -t elem -n "user" -v "" \
-    -i "/adminTools/users/user[not(@platform)]" -t attr -n "platform" -v "Steam" \
-    -i "/adminTools/users/user[not(@userid)]" -t attr -n "userid" -v "$ADMIN_STEAMID" \
-    -i "/adminTools/users/user[not(@name)]" -t attr -n "name" -v "LSDC2 Master" \
-    -i "/adminTools/users/user[not(@permission_level)]" -t attr -n "permission_level" -v "0" \
-    $ADMIN_FILE
 
 # Edit the configuration file
 CONFIG_FILE=serverconfig.xml
