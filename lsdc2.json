@@ -1,0 +1,27 @@
+{
+    "key": "sevendtd",
+    "image": "meuna/lsdc2:sevendtd",
+    "cpu": "4 vCPU",
+    "memory": "16 GB",
+    "storage": 30,
+    "portMap": {
+        "26900": "tcp",
+        "26901": "udp",
+        "26902": "udp",
+        "26903": "udp",
+        "26904": "udp",
+        "26905": "udp"
+    },
+    "envMap": {
+        "LSDC2_SNIFF_IFACE": "eth1",
+        "LSDC2_SCAN_STDOUT": "true",
+        "LSDC2_WAKEUP_SENTINEL": "GameServer.LogOn successful"
+    },
+    "envParamMap": {
+        "ADMIN_STEAMID": "Steam ID of the admin",
+        "SERVER_PASS": "Password",
+        "GAME_DAYLENGTH": "Day length (default 60)",
+        "GAME_DIFFICULTY": "Difficulty (0-[1]-2-3-4-5)",
+        "SERVER_ALLOW_CROSSPLAY": "Crossplay & EAC"
+    }
+}
