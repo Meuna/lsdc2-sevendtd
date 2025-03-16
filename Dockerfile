@@ -27,7 +27,7 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 
 WORKDIR $SEVENDTD_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.3.1/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.3.2/serverwrap /serverwrap
 
 COPY start-server.sh update-server.sh serveradmin.xml $SEVENDTD_HOME
 RUN apt-get update && apt-get install -y xmlstarlet \
