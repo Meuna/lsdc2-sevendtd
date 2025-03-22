@@ -1,8 +1,8 @@
 {
     "key": "sevendtd",
     "image": "meuna/lsdc2:sevendtd",
-    "cpu": "4 vCPU",
-    "memory": "16 GB",
+    "cpu": "2 vCPU",
+    "memory": "8 GB",
     "storage": 30,
     "portMap": {
         "26900": "tcp",
