@@ -1,9 +1,12 @@
 {
-    "key": "sevendtd",
-    "image": "meuna/lsdc2:sevendtd",
-    "cpu": "2 vCPU",
-    "memory": "8 GB",
-    "storage": 30,
+    "name": "sevendtd",
+    "engineType": "ecs",
+    "engine": {
+        "image": "meuna/lsdc2:sevendtd",
+        "cpu": "2 vCPU",
+        "memory": "8 GB",
+        "storage": 30
+    },
     "portMap": {
         "26900": "tcp",
         "26901": "udp",
