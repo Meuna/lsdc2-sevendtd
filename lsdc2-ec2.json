@@ -1,0 +1,31 @@
+{
+    "name": "sevendtd-ec2",
+    "engineType": "ec2",
+    "engine": {
+        "ami": "lsdc2/images/sevendtd",
+        "instanceType": "m6a.large",
+        "iops": 6000,
+        "throughput": 400,
+        "fastboot": true
+    },
+    "portMap": {
+        "26900": "tcp",
+        "26901": "udp",
+        "26902": "udp",
+        "26903": "udp",
+        "26904": "udp",
+        "26905": "udp"
+    },
+    "envMap": {
+        "LSDC2_SNIFF_IFACE": "ens5",
+        "LSDC2_SCAN_STDOUT": "true",
+        "LSDC2_WAKEUP_SENTINEL": "GameServer.LogOn successful"
+    },
+    "envParamMap": {
+        "ADMIN_STEAMID": "Steam ID of the admin",
+        "SERVER_PASS": "Password",
+        "GAME_DAYLENGTH": "Day length (default 60)",
+        "GAME_DIFFICULTY": "Difficulty (0-[1]-2-3-4-5)",
+        "SERVER_ALLOW_CROSSPLAY": "Crossplay & EAC"
+    }
+}

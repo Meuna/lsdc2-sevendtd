@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y xmlstarlet \
     && rm -rf /root/.steam \
     && rm -rf /$LSDC2_HOME/Data/Worlds/P*
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.2/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.4/serverwrap /usr/local/bin
 COPY start-server.sh $LSDC2_HOME
 RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh \
     && chmod +x /usr/local/bin/serverwrap start-server.sh
@@ -29,7 +29,7 @@ ENV GAME_SAVEDIR=$LSDC2_HOME/savedir \
     GAME_PORT=26900
 
 ENV LSDC2_SNIFF_IFACE="eth1" \
-    LSDC2_SNIFF_FILTER="(tcp port $GAME_PORT) or (udp portrange 26900-26905)" \
+    LSDC2_SNIFF_FILTER="udp portrange 26900-26905" \
     LSDC2_PERSIST_FILES="$SAVES_DIRNAME;$WORLDS_DIRNAME" \
     LSDC2_ZIPFROM=$GAME_SAVEDIR
 

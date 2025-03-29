@@ -1,11 +1,11 @@
 {
-    "name": "sevendtd",
+    "name": "sevendtd-ecs",
     "engineType": "ecs",
     "engine": {
         "image": "meuna/lsdc2:sevendtd",
         "cpu": "2 vCPU",
         "memory": "8 GB",
-        "storage": 30
+        "storage": 25
     },
     "portMap": {
         "26900": "tcp",
