@@ -12,7 +12,7 @@ locals {
   lsdc2-home           = "/lsdc2"
   lsdc2-gid            = 2000
   lsdc2-uid            = 2000
-  lsdc2-serverwrap-url = "https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.4/serverwrap"
+  lsdc2-serverwrap-url = "https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.5/serverwrap"
   lsdc2-service        = "lsdc2.service"
   game-savedir         = "/lsdc2/savedir"
   saves-dirname        = "Saves"
