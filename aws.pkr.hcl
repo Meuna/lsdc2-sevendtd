@@ -8,6 +8,7 @@ packer {
 }
 
 locals {
+  lsdc2-gamename       = "sevendtd-ec2"
   lsdc2-user           = "lsdc2"
   lsdc2-home           = "/lsdc2"
   lsdc2-gid            = 2000
@@ -22,8 +23,11 @@ locals {
 
 # Source image
 source "amazon-ebs" "ubuntu-noble-latest" {
-  ami_name      = "lsdc2/images/sevendtd"
+  ami_name      = "lsdc2/images/${local.lsdc2-gamename}"
   instance_type = "m6a.large"
+  tags = {
+    "lsdc2.gamename" = "${local.lsdc2-gamename}"
+  }
   launch_block_device_mappings {
     device_name           = "/dev/sda1"
     volume_size           = 20
@@ -49,7 +53,7 @@ source "amazon-ebs" "ubuntu-noble-latest" {
 
 # Provisionning
 build {
-  name = "lsdc2/packer/sevendtd"
+  name = "lsdc2/packer/${local.lsdc2-gamename}"
   sources = [
     "source.amazon-ebs.ubuntu-noble-latest"
   ]
