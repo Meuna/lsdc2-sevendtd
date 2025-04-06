@@ -24,7 +24,8 @@ locals {
 # Source image
 source "amazon-ebs" "ubuntu-noble-latest" {
   ami_name      = "lsdc2/images/${local.lsdc2-gamename}"
-  instance_type = "m6a.large"
+  spot_instance_types = ["m6a.large", "m6i.large", "m7i-flex.large", "m7i.large", "m5.large", "m5a.large"]
+  spot_price          = "0.05"
   tags = {
     "lsdc2.gamename" = "${local.lsdc2-gamename}"
   }
