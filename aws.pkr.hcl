@@ -8,7 +8,7 @@ packer {
 }
 
 locals {
-  lsdc2-gamename       = "sevendtd-ec2"
+  lsdc2-gamename       = "sevendtd"
   lsdc2-user           = "lsdc2"
   lsdc2-home           = "/lsdc2"
   lsdc2-gid            = 2000
@@ -27,7 +27,7 @@ source "amazon-ebs" "ubuntu-noble-latest" {
   spot_instance_types = ["m6a.large", "m6i.large", "m7i-flex.large", "m7i.large", "m5.large", "m5a.large"]
   spot_price          = "0.05"
   tags = {
-    "lsdc2.gamename" = "${local.lsdc2-gamename}"
+    "lsdc2.gamename" = "${local.lsdc2-gamename}-ec2"
   }
   launch_block_device_mappings {
     device_name           = "/dev/sda1"
