@@ -3,7 +3,7 @@
     "engineType": "ec2",
     "engine": {
         "ami": "lsdc2/images/sevendtd",
-        "instanceType": "m6a.large",
+        "instanceTypes": ["r7i.large", "r6i.large", "r5.large", "r5a.large", "r5d.large", "r5ad.large", "m6a.xlarge"],
         "iops": 6000,
         "throughput": 400,
         "fastboot": true
