@@ -17,7 +17,8 @@
         "26905": "udp"
     },
     "envMap": {
-        "LSDC2_SNIFF_IFACE": "ens5",
+        "LSDC2_LOW_MEMORY_WARNING_MB": "2048",
+        "LSDC2_LOW_MEMORY_SIGNAL_MB": "1024",
         "LSDC2_SCAN_STDOUT": "true",
         "LSDC2_WAKEUP_SENTINEL": "GameServer.LogOn successful"
     },

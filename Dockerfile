@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y xmlstarlet \
     && rm -rf /root/.steam \
     && rm -rf /$LSDC2_HOME/Data/Worlds/P*
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.5/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.0/serverwrap /usr/local/bin
 COPY start-server.sh $LSDC2_HOME
 RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh \
     && chmod +x /usr/local/bin/serverwrap start-server.sh
