@@ -7,21 +7,17 @@
         "memory": "8 GB",
         "storage": 25
     },
-    "portMap": {
-        "26900": "tcp",
-        "26901": "udp",
-        "26902": "udp",
-        "26903": "udp",
-        "26904": "udp",
-        "26905": "udp"
+    "ingress": {
+        "tcp": [26900],
+        "udp": [26901, 26902, 26903, 26904, 26905]
     },
-    "envMap": {
+    "env": {
         "LSDC2_LOW_MEMORY_WARNING_MB": "2048",
         "LSDC2_LOW_MEMORY_SIGNAL_MB": "1024",
         "LSDC2_SCAN_STDOUT": "true",
         "LSDC2_WAKEUP_SENTINEL": "GameServer.LogOn successful"
     },
-    "envParamMap": {
+    "params": {
         "ADMIN_STEAMID": "Steam ID of the admin",
         "SERVER_PASS": "Password",
         "GAME_DAYLENGTH": "Day length (default 60)",
