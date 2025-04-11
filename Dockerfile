@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y xmlstarlet \
     && rm -rf /$LSDC2_HOME/Data/Worlds/P*
 
 ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.1/serverwrap /usr/local/bin
-COPY start-server.sh $LSDC2_HOME
-RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh \
+COPY start-server.sh serveradmin.xml $LSDC2_HOME
+RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh serveradmin.xml \
     && chmod +x /usr/local/bin/serverwrap start-server.sh
 
 ENV GAME_SAVEDIR=$LSDC2_HOME/savedir \
