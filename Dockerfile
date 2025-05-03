@@ -18,10 +18,10 @@ RUN apt-get update && apt-get install -y xmlstarlet \
     && rm -rf /root/.steam \
     && rm -rf /$LSDC2_HOME/Data/Worlds/P*
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.1/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-pilot/releases/download/v0.5.2/lsdc2-pilot /usr/local/bin
 COPY start-server.sh serveradmin.xml $LSDC2_HOME
 RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh serveradmin.xml \
-    && chmod +x /usr/local/bin/serverwrap start-server.sh
+    && chmod +x /usr/local/bin/lsdc2-pilot start-server.sh
 
 ENV GAME_SAVEDIR=$LSDC2_HOME/savedir \
     SAVES_DIRNAME=Saves \
@@ -33,5 +33,5 @@ ENV LSDC2_SNIFF_FILTER="udp dst portrange 26900-26905" \
     LSDC2_ZIPFROM=$GAME_SAVEDIR
 
 EXPOSE 26900/tcp
-ENTRYPOINT ["serverwrap"]
+ENTRYPOINT ["lsdc2-pilot"]
 CMD ["./start-server.sh"]
